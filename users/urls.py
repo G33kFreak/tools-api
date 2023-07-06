@@ -8,5 +8,5 @@ auth_urls = [
 ]
 
 urlpatterns = [
-    path('me/', UserDataAPIView.as_view())
+    path('', UserDataAPIView.as_view())
 ]

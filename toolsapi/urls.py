@@ -23,13 +23,13 @@ docs_urls = [
 ]
 
 api_urls = [
-    path('', include('users.urls'))
+    path('me/', include('users.urls')),
+    path('tokens/', include('jwt.urls')),
+    path('auth/', include(auth_urls)),
 ]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', include(docs_urls)),
-    
     path('api/', include(api_urls)),
-    path('auth/', include(auth_urls)),
 ]
