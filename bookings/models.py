@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime 
 
 from django.db import models
 
@@ -16,12 +17,18 @@ class Booking(models.Model):
     )
     tools = models.ManyToManyField(Tool)
     is_verified = models.BooleanField(default=False)
+    date_start = models.DateField()
+    date_end = models.DateField()
 
     @property
     def sum_price(self):
         sum_price = 0
         for tool in self.tools.all():
-            sum_price += tool.price
+            delta = self.date_end - self.date_start
+            if delta.days == 0:
+                sum_price += tool.price
+            else:
+                sum_price += tool.price * delta.days
         return sum_price
 
     def __str__(self) -> str:

@@ -13,4 +13,16 @@ class BookingSerializer(serializers.ModelSerializer):
             'is_verified',
             'tools',
             'sum_price',
+            'date_start',
+            'date_end',
+        ]
+
+class BookingCreateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Booking
+        fields = [
+            'tools',
+            'user',
+            'date_start',
+            'date_end',
         ]
