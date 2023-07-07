@@ -11,5 +11,6 @@ class ToolSerializer(serializers.ModelSerializer):
             'label',
             'description',
             'image_url',
-            'available_count',
+            'available',
+            'price',
         ]

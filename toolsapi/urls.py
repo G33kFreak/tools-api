@@ -28,7 +28,8 @@ api_urls = [
     path('me', include('users.urls')),
     path('tokens/', include('jwt_auth.urls')),
     path('auth/', include(auth_urls)),
-    path('tools/', include('tools.urls'))
+    path('tools/', include('tools.urls')),
+    path('bookings/', include('bookings.urls')),
 ]
 
 urlpatterns = [

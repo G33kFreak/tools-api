@@ -11,6 +11,6 @@ class ToolAdmin(admin.ModelAdmin):
         'in_stock',
         'price',
     ]
-    readonly_fields = ('availavle',)
+    readonly_fields = ('available',)
 
 admin.site.register(Tool, ToolAdmin)

@@ -9,7 +9,7 @@ class Tool(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=6, default=0)
 
     @property
-    def availavle(self):
+    def available(self):
         return self.in_stock - self.booking_set.count()
 
     def __str__(self) -> str:
