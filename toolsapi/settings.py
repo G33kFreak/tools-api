@@ -42,7 +42,7 @@ INSTALLED_APPS = [
 
     'drf_yasg',
     'users',
-    'jwt'
+    'jwt_auth',
 ]
 
 MIDDLEWARE = [

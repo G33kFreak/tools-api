@@ -4,8 +4,8 @@ from rest_framework import status
 from rest_framework.permissions import AllowAny
 from rest_framework.response import Response
 
-from jwt.api.serializers import CustomTokenObtainPairSerializer, CustomTokenRefreshSerializer
-from jwt.exceptions import InvalidRefreshToken
+from jwt_auth.api.serializers import CustomTokenObtainPairSerializer, CustomTokenRefreshSerializer
+from jwt_auth.exceptions import InvalidRefreshToken
 
 
 class ObtainTokensAPIView(TokenObtainPairView):

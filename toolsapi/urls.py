@@ -24,7 +24,7 @@ docs_urls = [
 
 api_urls = [
     path('me/', include('users.urls')),
-    path('tokens/', include('jwt.urls')),
+    path('tokens/', include('jwt_auth.urls')),
     path('auth/', include(auth_urls)),
 ]
 

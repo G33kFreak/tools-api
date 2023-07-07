@@ -20,6 +20,7 @@ class UserActivationCreator:
             email=self.validated_data.get('email'),
             password=self.validated_data.get('password'),
             first_name=self.validated_data.get('first_name'),
+            last_name=self.validated_data.get('last_name'),
             is_active=False,
         )
     
@@ -42,7 +43,7 @@ class UserAcivator:
 
     def activate(self):
         try:
-            user_activation_token = UserActivateToken.objects.active().get(
+            user_activation_token = UserActivateToken.objects.get(
                 token=self.data["token"],
                 user__email=self.data["email"],
             )

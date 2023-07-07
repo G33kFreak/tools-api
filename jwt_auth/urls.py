@@ -1,5 +1,5 @@
 from django.urls import path
-from jwt.api.views import ObtainTokensAPIView, RefreshTokensAPIView
+from jwt_auth.api.views import ObtainTokensAPIView, RefreshTokensAPIView
 
 
 urlpatterns = [
