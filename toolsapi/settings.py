@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'users',
     'jwt_auth',
     'tools',
+    'bookings',
 ]
 
 MIDDLEWARE = [

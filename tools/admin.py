@@ -3,4 +3,14 @@ from django.contrib import admin
 from tools.models import Tool
 
 
-admin.site.register(Tool)
+class ToolAdmin(admin.ModelAdmin):
+    list_display = [
+        'label',
+        'description',
+        'image_url',
+        'in_stock',
+        'price',
+    ]
+    readonly_fields = ('availavle',)
+
+admin.site.register(Tool, ToolAdmin)
