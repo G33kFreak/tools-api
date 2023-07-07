@@ -1,6 +1,8 @@
 from rest_framework import permissions
 from django.contrib import admin
 from django.urls import path, include, re_path
+from django.conf.urls.static import static
+from django.conf import settings
 
 from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
@@ -23,13 +25,14 @@ docs_urls = [
 ]
 
 api_urls = [
-    path('me/', include('users.urls')),
+    path('me', include('users.urls')),
     path('tokens/', include('jwt_auth.urls')),
     path('auth/', include(auth_urls)),
+    path('tools/', include('tools.urls'))
 ]
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('swagger/', include(docs_urls)),
     path('api/', include(api_urls)),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
