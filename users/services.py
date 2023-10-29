@@ -2,6 +2,8 @@ from rest_framework import serializers
 
 from users.models.user import User
 from users.models.activate_tokens import UserActivateToken
+from django.core.mail import send_mail
+from django.conf import settings
 
 
 class UserActivationCreator:
@@ -26,9 +28,13 @@ class UserActivationCreator:
     
     def after_creation(self) -> None:
         user_token = UserActivateToken().create_token(self.resulting_user)
-        # TODO: Add sending email
         if user_token:
-            pass
+            send_mail(
+                subject='Potwierdzenie rejestracji',
+                message=f'Dziękujemy za rejestrację! To jest ostatni krok\n twój kod potwierdzający to: {user_token.token}\n Wprowadź go na stronie',
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[f'{self.resulting_user.email}']
+            )
 
 class UserAcivator:
     def __init__(self, token: str, email: str) -> None:
